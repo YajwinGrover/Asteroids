@@ -1,7 +1,11 @@
 import processing.core.PApplet;
+import processing.core.PImage;
 
 public class Game extends PApplet {
     // TODO: declare game variables
+    Car c;
+    private String URL = "./track.png";
+    private PImage backgroundImg;
 
     public void settings() {
         size(800, 800);   // set the window size
@@ -10,6 +14,9 @@ public class Game extends PApplet {
 
     public void setup() {
         // TODO: initialize game variables
+        c = new Car(new Point2(0,0));
+        //size(200, 200);
+        backgroundImg = loadImage(URL, "png");
     }
 
     /***
@@ -18,11 +25,14 @@ public class Game extends PApplet {
      */
     public void draw() {
         background(255);    // paint screen white
+        backgroundImg.resize(800, 500);
+        image(backgroundImg, 0, 0);
         fill(0,255,0);          // load green paint color
-        ellipse(mouseX, mouseY, 60, 60);  // draw circle at mouse loc
-        ellipse(mouseX - 80, mouseY, 60, 60);  // draw circle at mouse loc
-        ellipse(mouseX + 80, mouseY, 60, 60);  // draw circle at mouse loc
+        c.draw(this);
+
     }
+
+
 
     public static void main(String[] args) {
         PApplet.main("Game");
