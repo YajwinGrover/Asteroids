@@ -8,8 +8,7 @@ public class Game extends PApplet {
     private PImage backgroundImg;
 
     public void settings() {
-        size(800, 800);   // set the window size
-
+        size(800, 500);   // set the window size
     }
 
     public void setup() {
@@ -28,7 +27,9 @@ public class Game extends PApplet {
         backgroundImg.resize(800, 500);
         image(backgroundImg, 0, 0);
         fill(0,255,0);          // load green paint color
+        translate(100,100);
         c.draw(this);
+        ellipse((int)c.position.x, (int)c.position.y,1,1);
 
     }
 
@@ -38,3 +39,7 @@ public class Game extends PApplet {
         PApplet.main("Game");
     }
 }
+
+
+
+
